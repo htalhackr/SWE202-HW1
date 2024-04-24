@@ -1,6 +1,6 @@
 //   B221202370  - Halit Talha Çakır
 // SWE 202 SOFTWARE VERIFICATION AND VALIDATION - HOMEWORK 1
-
+// https://github.com/htalhackr/SWE202-HW1
 package org.example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,6 +50,11 @@ class CalculatorTest {
         assertEquals(expected, Calculator.divide(a, b));
     }
 
+    @ParameterizedTest
+    @CsvSource({"10, 2, 5", "10, 4, 2.5", "12.5f, 2.5f, 5", "10, 2.5f, 4", "12.5f, 5, 2.5f"})
+    void testDivisions(float a, float b, float expected) {
+        assertEquals(expected, Calculator.divide(a, b));
+    }
     @Test
     void testDivision6() {
         Exception exception = assertThrows(
